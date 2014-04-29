@@ -1,0 +1,180 @@
+	body ,#content { 
+	background-color: #333333;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#333333),color-stop(1,#444444));
+	background-image: -moz-linear-gradient(center bottom,#333333 0,#444444 100%);
+	color: #ffe000;
+	}
+	
+	a , label { color: #ffe000; }
+	
+	#content {
+		clear: both;
+		color: #333;
+		padding: 10px 20px 40px 0px;
+		overflow: auto;
+	}
+
+	/*
+	Projects - index
+	*/
+
+	.projects-list { width: 100% }
+	.projects-list img { width: 4%; }
+	.projects-list li {
+		text-transform: uppercase;
+		border: 1px solid #333333; 
+		/*background: deeppink;*/
+		list-style: none;
+		/*font-size: 5vw;*/ text-decoration: none; font-weight: 600;
+		margin: 0;
+		background-color: #ffe000;
+		position: relative;
+		background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#ffc900),color-stop(1,#ffec01));
+		background-image: -moz-linear-gradient(center bottom,#ffc900 0,#ffec01 100%);
+		/*display: block;*/
+		padding: 5% 5% 3.875% 5%;
+		color: #724a0e;
+		font-size: 4vw/1;/* "bello-pro","Cooper STD",Georgia,serif;*/
+		text-decoration: none;
+		/*
+		text-shadow: 0 1px 0 rgba(255,255,255,0.3),0px -1px 0 rgba(0,0,0,0.2);
+		-webkit-box-shadow: inset 0 2px 0 rgba(255,255,255,0.3),inset 0 -2px 0 rgba(255,255,255,0.1),0px 5px 0 0 #daa206,0px 5px 0 2px rgba(0,0,0,0.2);
+		-ms-box-shadow: inset 0 2px 0 rgba(255,255,255,0.3),inset 0 -2px 0 rgba(255,255,255,0.1),0px 5px 0 0 #daa206,0px 5px 0 2px rgba(0,0,0,0.2);
+		box-shadow: inset 0 2px 0 rgba(255,255,255,0.3),inset 0 -2px 0 rgba(255,255,255,0.1),0px 5px 0 0 #daa206,0px 5px 0 2px rgba(0,0,0,0.2);
+		-ms-border-radius: 12px;*/
+		
+		border-radius: 12px;
+		-webkit-transition: box-shadow 150ms ease-out;
+		-moz-transition: box-shadow 150ms ease-out;
+		
+	}
+
+	.control-btn{
+		font-size: 4vw;	
+		padding: 5% 5% 3.875% 5%;
+		text-align: center;
+		border: 1px solid #333333; 	
+		background: #b5157b;
+		width: 90%;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5157b', endColorstr='#880e4f');
+		background-image: url(card.png), -webkit-gradient(linear, left top, left bottom, from(#b5157b), to(#880e4f));
+		background-image: url(card.png), -moz-linear-gradient(top, #b5157b, #880e4f);
+		box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+		
+		-moz-box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+		-moz-border-radius: 0.3em;
+		border-radius: 0.3em;
+		-webkit-border-radius: 0.3em;
+		
+		overflow: hidden; white-space: nowrap; color: #ffe000; margin: 0;  margin-left: 10px;
+		text-shadow: rgba(255,255,255,0.2) 0 1px 0;
+	}
+
+	.control-btn a{
+		font-size: 4vw;	
+		text-align: center;
+		text-decoration: none;
+		color: #ffe000;	
+	}
+		
+		
+
+	.projects-list li a { color: #000000; text-decoration: none; text-transform: uppercase; }
+	.projects-list li a:hover { color: #ffaa00; text-decoration: none; }
+	.projects-list li span:hover { color: #f0f0f0; text-decoration: none; }
+
+
+
+	.counter-slide {
+		position: absolute; height: 100%; width: 100%; color: #ffaa00; background: deeppink;
+		margin: 0; top: 0; left: 0; font-weight: 600; font-size: 17vw; text-align: center;
+		z-index: 3;
+	}
+	.counter-slide .couter-txt { margin-top: 10%;  }
+	/*
+	.counter-slide .couter-txt { transform: rotate(0deg); transition-duration: 0.8s; transition-property: transform; }
+	.counter-slide .couter-txt:hover { transform: rotate(360deg); transition-duration: 0.8s; transition-property: transform; }
+	*/
+	
+	button
+{
+	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	margin: 20px auto;
+	color: #ccc;
+	background-color: #555;
+	background: -webkit-linear-gradient(#888, #555);
+	background: linear-gradient(#888, #555);
+	border: 0 none;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 #000;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	cursor: pointer;
+	-webkit-transition: all 150ms ease;
+	transition: all 150ms ease;
+}
+
+button:hover, button:focus
+{
+	-webkit-animation: pulsate 1.2s linear infinite;
+	animation: pulsate 1.2s linear infinite;
+}
+	
+@-webkit-keyframes pulsate
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+		
+@keyframes pulsate
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+
+button:active
+{
+	color: #fff;
+	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
+	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
+	-webkit-animation: none;
+	animation: none;
+}
+
+
+
+
+.likeabutton {
+    text-decoration: none; font: menu;
+    display: inline-block; padding: 2px 8px;
+    background: ButtonFace; color: ButtonText;
+    border-style: solid; border-width: 2px;
+    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+}
+.likeabutton:active {
+    border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+}
+.likeabutton {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none; font: menu; color: ButtonText;
+    display: inline-block; padding: 2px 8px;
+}
+
+h1 {
+    background: none repeat scroll 0% 0% transparent;
+    color: #fff;
+    font-size: 100%;
+}
+
+
+
