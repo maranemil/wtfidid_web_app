@@ -12,13 +12,13 @@ Web App able to track your time that you spend in different Tasks/Jobs/Projects
 
 [![Editor Screen](https://raw.github.com/maranemil/wtfidid_web_app/master/screens/wtfidid_screen.png)](#features)
 
-Fix for RewriteBase, 500 Internal Server Error:
+### Fix for RewriteBase, 500 Internal Server Error:
 
-<IfModule mod_rewrite.c>
-   RewriteEngine on
-   RewriteBase /
-   RewriteRule    ^$ app/webroot/    [L]
-   RewriteRule    (.*) app/webroot/$1 [L]
-</IfModule>
+*<IfModule mod_rewrite.c>
+*   RewriteEngine on
+*   RewriteBase /
+*   RewriteRule    ^$ app/webroot/    [L]
+*   RewriteRule    (.*) app/webroot/$1 [L]
+*</IfModule>
 
  In all three .htaccess files, in: root, /app and /app/webroot folders must be RewriteBase / 
