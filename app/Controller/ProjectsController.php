@@ -73,6 +73,7 @@ class ProjectsController extends AppController {
 	public function add() {
         if ($this->request->is('post')) {
             $this->Project->create();
+            this->request->data["Project"]["user_id"] = $this->Auth->user('id');
             if ($this->Project->save($this->request->data)) {
                 $this->Session->setFlash(__('Your Project has been saved.'));
                 return $this->redirect(array('action' => 'index'));
