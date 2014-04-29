@@ -14,7 +14,7 @@ Web App able to track your time that you spend in different Tasks/Jobs/Projects
 
 ### Fix for RewriteBase, 500 Internal Server Error:
 
-<code>
+```
 
 <IfModule mod_rewrite.c>
    RewriteEngine on
@@ -23,6 +23,6 @@ Web App able to track your time that you spend in different Tasks/Jobs/Projects
    RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>
 
-</code>
+```
 
 In all three .htaccess files, in: root, /app and /app/webroot folders must be RewriteBase / 
