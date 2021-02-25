@@ -1,7 +1,6 @@
 <!-- File: /app/View/Projects/add.ctp -->
 
-
-<!-- 
+<!--
 http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html
 <form id="PostAddForm" method="post" action="/posts/add">
  -->

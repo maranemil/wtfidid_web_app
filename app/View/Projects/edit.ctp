@@ -1,6 +1,5 @@
 <!-- File: /app/View/Posts/edit.ctp -->
 
-
 <?php
 // project
 echo $this->Form->create('Project');

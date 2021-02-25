@@ -1,14 +1,10 @@
 <?php
 /**
- *
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
- *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.View.Layouts
@@ -19,7 +15,7 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
@@ -51,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	-->
     </div>
     <div id="content">
-	
+
 		<?php if ($this->Session->read('Auth.User')){ ?>
 		<div class="control-btn">
 			<a href="<?=$this->webroot?>projects/index">Back To Index</a>
