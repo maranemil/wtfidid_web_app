@@ -35,8 +35,11 @@ foreach ($projects as $project) {
 <script>
 	let interval;
 	//$(document).ready(function(){
+
 	jQuery(function ($) {
+
 		$('.counter-slide').slideUp();
+		
 		$.toHHMMSS = function (sec_num) {
 
 			let hours = Math.floor(sec_num / 3600);
@@ -109,7 +112,7 @@ foreach ($projects as $project) {
 		};
 
 		$.counterStop = function () {
-			clearInterval(interval)
+			clearInterval(interval);
 			$('#timer-digits').text('');
 		};
 
@@ -125,10 +128,10 @@ foreach ($projects as $project) {
 			})
 			.done(function (msg) {
 				//alert( "Data Saved: " + msg );
-				$('#unix-start').text('')
-				$('#unix-end').text('')
-				$('#unix-diff').text('')
-				$('#unix-proid').text('')
+				$('#unix-start').text('');
+				$('#unix-end').text('');
+				$('#unix-diff').text('');
+				$('#unix-proid').text('');
 			});
 		}
 	});

@@ -10,7 +10,7 @@
 
 </div>
 <div id="footer">
-	<span style="font-size: 10px">WTFIDID V0.1 - 2014 </span>
+	<span style="font-size: 10px">WTFIDID V0.1 - 2014 - <?php echo date("Y")?></span>
 	<?php
 	$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 	echo $this->Html->link(
