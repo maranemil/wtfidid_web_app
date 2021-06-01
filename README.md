@@ -8,7 +8,7 @@ Web App able to track your time that you spend in different Tasks/Jobs/Projects
 * ** Author: Emil Maran
 * ** Tags: Time Tracking App, Web App, Mobile Web, Cakephp 2.X
 * ** created:  2014 Apr 27
-* ** modified: 2014 Apr 29
+* ** modified: 2021 Jun 01
 
 [![Editor Screen](https://raw.github.com/maranemil/wtfidid_web_app/master/screens/wtfidid_screen.png)](#features)
 
@@ -25,4 +25,4 @@ Web App able to track your time that you spend in different Tasks/Jobs/Projects
 
 ```
 
-In all three .htaccess files, in: root, /app and /app/webroot folders must be RewriteBase / 
+In all three .htaccess files, in: root, /app and /app/webroot folders must be RewriteBase /
