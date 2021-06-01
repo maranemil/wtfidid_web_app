@@ -85,7 +85,7 @@ foreach ($projects as $project) {
 			$('#unix-start').text(startTime);
 			$('#unix-proid').text($(this).attr("id").replace("prod-", ""));
 			$.counterUp();
-			$('#ajax-loader').html('<br /><img src="<?=$this->base?>img/ajax-loader_3.gif" width="30%">')
+			$('#ajax-loader').html('<br /><img src="<?=$this->webroot?>img/ajax-loader_3.gif" width="30%">')
 		});
 
 		$('.counter-slide').click(function () {
