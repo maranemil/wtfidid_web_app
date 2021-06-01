@@ -24,7 +24,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-Configure::write('debug', 1);
+Configure::write('debug', 2);
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
@@ -89,7 +89,7 @@ Configure::write('App.encoding', 'UTF-8');
  * included primarily as a development convenience - and
  * thus not recommended for production applications.
  */
-//Configure::write('App.baseUrl', env('SCRIPT_NAME'));
+Configure::write('App.baseUrl', env('SCRIPT_NAME'));
 
 /**
  * To configure CakePHP to use a particular domain URL

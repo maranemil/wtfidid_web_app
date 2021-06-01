@@ -1,10 +1,10 @@
 <?php if ($this->Session->read('Auth.User')) { ?>
 	<div class="control-btn">
-		<a href="<?= $this->webroot ?>users/logout">Logout</a>
+		<a href="<?= $this->base ?>/users/logout">Logout</a>
 	</div>
 <?php } else { ?>
 	<div class="control-btn">
-		<a href="<?= $this->webroot ?>users/login">Login</a>
+		<a href="<?= $this->base ?>/users/login">Login</a>
 	</div>
 <?php } ?>
 

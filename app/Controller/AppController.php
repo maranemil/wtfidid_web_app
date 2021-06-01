@@ -24,104 +24,110 @@ App::uses('Controller', 'Controller');
  * @package        app.Controller
  * @link           http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller
+{
 
-   //public $components = array('DebugKit.Toolbar');
+    //public $components = array('DebugKit.Toolbar');
 
-   /*public $components = array(
-	   'DebugKit.Toolbar',
-	   'Session',
-	   'Auth' => array(
-		   'loginRedirect' => array(
-			   'controller' => 'posts',
-			   'action' => 'index'
-		   ),
-		   'logoutRedirect' => array(
-			   'controller' => 'pages',
-			   'action' => 'display',
-			   'home'
-		   )
-	   )
-   );*/
+    /*public $components = array(
+    'DebugKit.Toolbar',
+    'Session',
+    'Auth' => array(
+    'loginRedirect' => array(
+    'controller' => 'posts',
+    'action' => 'index'
+    ),
+    'logoutRedirect' => array(
+    'controller' => 'pages',
+    'action' => 'display',
+    'home'
+    )
+    )
+    );*/
 
-   /*public $components = array(
-   'DebugKit.Toolbar',
-   'Session',
-   'Auth' => array(
-	   'loginAction' => array(
-		   'controller' => 'users',
-		   'action' => 'login'
-		   //'plugin' => 'users'
-	   ),
-	   'authError' => 'Did you really think you are allowed to see that?',
-	   'authenticate' => array(
-		   'Form' => array(
-			   'fields' => array('username' => 'email')
-		   )
-	   ),
-	   'loginRedirect' => array('controller' => 'projects', 'action' => 'index'),
-	   'logoutRedirect' => array( 'controller' => 'users', 'action' => 'login' ),
-	   'authorize' => array('Controller') // Added this line
-   )
-);*/
+    /*
+    public $components = array(
+    'DebugKit.Toolbar',
+    'Session',
+    'Auth' => array(
+    'loginAction' => array(
+    'controller' => 'users',
+    'action' => 'login'
+    //'plugin' => 'users'
+    ),
+    'authError' => 'Did you really think you are allowed to see that?',
+    'authenticate' => array(
+    'Form' => array(
+    'fields' => array('username' => 'email')
+    )
+    ),
+    'loginRedirect' => array('controller' => 'projects', 'action' => 'index'),
+    'logoutRedirect' => array( 'controller' => 'users', 'action' => 'login' ),
+    'authorize' => array('Controller') // Added this line
+    )
+    );*/
 
-   /**
-	* @var string[]
-	*/
-   public $helpers = array('Html', 'Form', 'Session');
-   /**
-	* @var array
-	*/
-   public $components = array(
-	   'Session',
-	   'Auth' => array(
-		   'loginRedirect'  => array(
-			   'controller' => 'projects',
-			   'action'     => 'index'
-		   ),
-		   'logoutRedirect' => array(
-			   'controller' => 'users',
-			   'action'     => 'login',
-			   'home'
-		   ),
-		   'loginAction'    => array(
-			   'controller' => 'users',
-			   'action'     => 'login',
-		   ),
-		   /*'authError' => "Your username and password is incorrect, please try again.",
-		   'authenticate' => array(
-			   'Form' => array(
-				   'scope' => array('User.user_status_id' => 1)
-			   )
-		   ),*/
-		   'authorize'      => array('Controller') // <- here
-		   //'redirect' => array("controller" => "users", "action" => "profile"),
-	   )
-   );
+    /**
+     * @var string[]
+     */
+    public $helpers = array('Html', 'Form', 'Session');
+    /**
+     * @var array
+     */
+    public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'projects',
+                'action' => 'index',
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'users',
+                'action' => 'login',
+                'home',
+            ),
+            'loginAction' => array(
+                'controller' => 'users',
+                'action' => 'login',
+            ),
+            /*'authError' => "Your username and password is incorrect, please try again.",
+            'authenticate' => array(
+            'Form' => array(
+            'scope' => array('User.user_status_id' => 1)
+            )
+            ),*/
+            'authorize' => array('Controller'), // <- here
+            //'redirect' => array("controller" => "users", "action" => "profile"),
+        ),
+    );
 
-   /**
-	*
-	*/
-   public function beforeFilter() {
-	  //$this->Auth->allow('index', 'view','save','edit');
-	  //$this->Auth->authorize = 'controller';
-	  $this->Auth->allow('*');
-	  $this->set('authUser', $this->Auth->user());
-   }
+    
+    /**
+     * beforeFilter
+     *
+     * @return void
+     */
+    public function beforeFilter()
+    {
+        //$this->Auth->allow('index', 'view','save','edit');
+        //$this->Auth->authorize = 'controller';
+		
+        $this->Auth->allow('*');
+        $this->set('authUser', $this->Auth->user());
+    }
 
-   /**
-	* @param $user
-	*
-	* @return bool
-	*/
-   public function isAuthorized($user) {
-	  if (isset($user['role']) && $user['role'] === 'admin') {
-		 return true;
-	  }
-	  // Default deny
-	  return false;
-   }
+    /**
+     * @param $user
+     *
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+        // Default deny
+        return false;
+    }
 
 }
-
-

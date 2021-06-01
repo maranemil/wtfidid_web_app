@@ -1,7 +1,7 @@
-<!--<script src="--><?php //echo $this->webroot?><!--js/timer.jquery.js"></script>-->
+<script src="<?php echo $this->webroot?>js/timer.jquery.js"></script>
 
 <div class="control-btn">
-	<a href="<?= $this->webroot ?>projects/showstats">Today Report</a>
+	<a href="<?=$this->base?>/projects/showstats">Today Report</a>
 </div>
 <div class="counter-slide">
 	<div class="couter-timer">
@@ -11,8 +11,8 @@
 </div>
 <ul class="projects-list">
 	<?php
-	foreach ($projects as $project) {
-		echo '
+foreach ($projects as $project) {
+    echo '
                 <li class="project">
                     <a href="javascript:void(0)" class="project-bttn" id="prod-' . $project['Project']['id'] . '">
 						<img src="' . $this->webroot . 'img/play-icon.png" alt="">
@@ -20,11 +20,11 @@
                     <span> ' . $project['Project']['name'] . ' </span>
                 </li>
                 ';
-	}
-	?>
+}
+?>
 </ul>
 <div class="control-btn">
-	<a href="<?= $this->webroot ?>projects/plist">Edit Projects</a>
+	<a href="<?=$this->base?>/projects/plist">Edit Projects</a>
 </div>
 <div style="display: none">
 	<div id="unix-start"></div>
@@ -85,7 +85,7 @@
 			$('#unix-start').text(startTime);
 			$('#unix-proid').text($(this).attr("id").replace("prod-", ""));
 			$.counterUp();
-			$('#ajax-loader').html('<br /><img src="<?=$this->webroot?>img/ajax-loader_3.gif" width="30%">')
+			$('#ajax-loader').html('<br /><img src="<?=$this->base?>img/ajax-loader_3.gif" width="30%">')
 		});
 
 		$('.counter-slide').click(function () {
@@ -116,7 +116,7 @@
 		$.writeUnix2DB = function () {
 			$.ajax({
 				type: "POST",
-				url: "http://<?=$_SERVER['HTTP_HOST']?><?=$this->webroot?>projects/savetime/" + $('#unix-proid').text(),
+				url: "http://<?=$_SERVER['HTTP_HOST']?><?=$this->base?>/projects/savetime/" + $('#unix-proid').text(),
 				data: {
 					unixStart: $('#unix-start').text(),
 					unixEnd: $('#unix-end').text(),

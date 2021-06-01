@@ -50,6 +50,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 		<?php if ($this->Session->read('Auth.User')){ ?>
 		<div class="control-btn">
-			<a href="<?=$this->webroot?>projects/index">Back To Index</a>
+			<a href="<?=$this->base?>/projects/index">Back To Index</a>
 		</div>
 		<?php } ?>

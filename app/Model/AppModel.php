@@ -23,5 +23,6 @@ App::uses('Model', 'Model');
  * will inherit them.
  * @package       app.Model
  */
-class AppModel extends Model {
+class AppModel extends Model
+{
 }

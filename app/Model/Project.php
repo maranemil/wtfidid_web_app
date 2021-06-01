@@ -2,13 +2,22 @@
 
 App::uses('AppModel', 'Model');
 
-class Project extends AppModel {
-   public $validate = array(
-	   'name' => array(
-		   'rule' => 'notEmpty'
-	   )
-	   /*'body' => array(
-		   'rule' => 'notEmpty'
-	   )*/
-   );
+/**
+ * Project
+ */
+class Project extends AppModel
+{
+    /**
+     * validate
+     *
+     * @var array
+     */
+    public $validate = array(
+        'name' => array(
+            'rule' => 'notBlank',
+        ),
+        /*'body' => array(
+    'rule' => 'notEmpty'
+    )*/
+    );
 }
