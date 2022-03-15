@@ -1,4 +1,5 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection StaticInvocationViaThisInspection */
 /**
  * Application level Controller
  * This file is application-wide controller file. You can put all
@@ -101,7 +102,7 @@ class AppController extends Controller
         ),
     );
 
-    
+
     /**
      * beforeFilter
      *
@@ -111,7 +112,7 @@ class AppController extends Controller
     {
         //$this->Auth->allow('index', 'view','save','edit');
         //$this->Auth->authorize = 'controller';
-		
+
         $this->Auth->allow('*');
         $this->set('authUser', $this->Auth->user());
     }
@@ -123,11 +124,7 @@ class AppController extends Controller
      */
     public function isAuthorized($user)
     {
-        if (isset($user['role']) && $user['role'] === 'admin') {
-            return true;
-        }
-        // Default deny
-        return false;
-    }
+		return isset($user['role']) && $user['role'] === 'admin';
+	}
 
 }

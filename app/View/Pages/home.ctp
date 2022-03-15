@@ -13,7 +13,7 @@ App::uses('Debugger', 'Utility');
 ?>
 <h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
 <p>
-	<a href="http://cakephp.org/changelogs/<?php echo Configure::version(); ?>"><?php echo __d('cake_dev', 'Read the changelog'); ?> </a>
+	<a href="https://cakephp.org/changelogs/<?php echo Configure::version(); ?>"><?php echo __d('cake_dev', 'Read the changelog'); ?> </a>
 </p>
 <?php
 if (Configure::read('debug') > 0):
@@ -25,8 +25,11 @@ if (file_exists(WWW_ROOT . 'css' . DS . 'cake.generic.css')):
 	?>
 	<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;">
 		<?php echo __d('cake_dev', 'URL rewriting is not properly configured on your server.'); ?>
-		1) <a target="_blank" href="http://book.cakephp.org/2.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-		2) <a target="_blank" href="http://book.cakephp.org/2.0/en/development/configuration.html#cakephp-core-configuration" style="color:#fff;">I don't / can't use URL
+		1) <a target="_blank" href="https://book.cakephp.org/2.0/en/installation/url-rewriting.html" style="color:#fff;">Help
+			me configure it</a>
+		2) <a target="_blank"
+			  href="https://book.cakephp.org/2.0/en/development/configuration.html#cakephp-core-configuration"
+			  style="color:#fff;">I don't / can't use URL
 			rewriting</a>
 	</p>
 <?php
@@ -34,15 +37,14 @@ endif;
 ?>
 <p>
 	<?php
-	if (version_compare(PHP_VERSION, '5.2.8', '>=')):
+	if (PHP_VERSION_ID >= 50208):
 		echo '<span class="notice success">';
 		echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.');
-		echo '</span>';
 	else:
 		echo '<span class="notice">';
 		echo __d('cake_dev', 'Your version of PHP is too low. You need PHP 5.2.8 or higher to use CakePHP.');
-		echo '</span>';
 	endif;
+	echo '</span>';
 	?>
 </p>
 <p>
@@ -50,12 +52,11 @@ endif;
 	if (is_writable(TMP)):
 		echo '<span class="notice success">';
 		echo __d('cake_dev', 'Your tmp directory is writable.');
-		echo '</span>';
 	else:
 		echo '<span class="notice">';
 		echo __d('cake_dev', 'Your tmp directory is NOT writable.');
-		echo '</span>';
 	endif;
+	echo '</span>';
 	?>
 </p>
 <p>
@@ -64,12 +65,11 @@ endif;
 	if (!empty($settings)):
 		echo '<span class="notice success">';
 		echo __d('cake_dev', 'The %s is being used for core caching. To change the config edit %s', '<em>' . $settings['engine'] . 'Engine</em>', 'APP/Config/core.php');
-		echo '</span>';
 	else:
 		echo '<span class="notice">';
 		echo __d('cake_dev', 'Your cache is NOT working. Please check the settings in %s', 'APP/Config/core.php');
-		echo '</span>';
 	endif;
+	echo '</span>';
 	?>
 </p>
 <p>
@@ -79,14 +79,13 @@ endif;
 		echo '<span class="notice success">';
 		echo __d('cake_dev', 'Your database configuration file is present.');
 		$filePresent = true;
-		echo '</span>';
 	else:
 		echo '<span class="notice">';
 		echo __d('cake_dev', 'Your database configuration file is NOT present.');
 		echo '<br/>';
 		echo __d('cake_dev', 'Rename %s to %s', 'APP/Config/database.php.default', 'APP/Config/database.php');
-		echo '</span>';
 	endif;
+	echo '</span>';
 	?>
 </p>
 <?php
@@ -94,10 +93,9 @@ if (isset($filePresent)):
 	App::uses('ConnectionManager', 'Model');
 	try {
 		$connected = ConnectionManager::getDataSource('default');
-	}
-	catch (Exception $connectionError) {
+	} catch (Exception $connectionError) {
 		$connected = false;
-		$errorMsg  = $connectionError->getMessage();
+		$errorMsg = $connectionError->getMessage();
 		if (method_exists($connectionError, 'getAttributes')):
 			$attributes = $connectionError->getAttributes();
 			if (isset($errorMsg['message'])):
@@ -108,17 +106,16 @@ if (isset($filePresent)):
 	?>
 	<p>
 		<?php
-		if ($connected && $connected->isConnected()):
+		if (isset($connected) && $connected->isConnected()):
 			echo '<span class="notice success">';
 			echo __d('cake_dev', 'CakePHP is able to connect to the database.');
-			echo '</span>';
 		else:
 			echo '<span class="notice">';
 			echo __d('cake_dev', 'CakePHP is NOT able to connect to the database.');
 			echo '<br /><br />';
 			echo $errorMsg;
-			echo '</span>';
 		endif;
+		echo '</span>';
 		?>
 	</p>
 <?php endif; ?>
@@ -138,14 +135,13 @@ endif;
 	if (CakePlugin::loaded('DebugKit')):
 		echo '<span class="notice success">';
 		echo __d('cake_dev', 'DebugKit plugin is present');
-		echo '</span>';
 	else:
 		echo '<span class="notice">';
 		echo __d('cake_dev', 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.');
 		echo '<br/>';
 		echo __d('cake_dev', 'You can install it from %s', $this->Html->link('GitHub', 'https://github.com/cakephp/debug_kit'));
-		echo '</span>';
 	endif;
+	echo '</span>';
 	?>
 </p>
 
@@ -155,7 +151,7 @@ endif;
 	echo __d('cake_dev', 'To change the content of this page, edit: %s.<br />
 To change its layout, edit: %s.<br />
 You can also add some CSS styles for your pages at: %s.',
-			'APP/View/Pages/home.ctp', 'APP/View/Layouts/default.ctp', 'APP/webroot/css');
+			 'APP/View/Pages/home.ctp', 'APP/View/Layouts/default.ctp', 'APP/webroot/css');
 	?>
 </p>
 
@@ -164,7 +160,7 @@ You can also add some CSS styles for your pages at: %s.',
 	<?php
 	echo $this->Html->link(
 			sprintf('<strong>%s</strong> %s', __d('cake_dev', 'New'), __d('cake_dev', 'CakePHP 2.0 Docs')),
-			'http://book.cakephp.org/2.0/en/',
+			'https://book.cakephp.org/2.0/en/',
 			array('target' => '_blank', 'escape' => false)
 	);
 	?>
@@ -173,7 +169,7 @@ You can also add some CSS styles for your pages at: %s.',
 	<?php
 	echo $this->Html->link(
 			__d('cake_dev', 'The 15 min Blog Tutorial'),
-			'http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html',
+			'https://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html',
 			array('target' => '_blank', 'escape' => false)
 	);
 	?>
@@ -202,32 +198,32 @@ You can also add some CSS styles for your pages at: %s.',
 </p>
 
 <ul>
-	<li><a href="http://cakephp.org">CakePHP</a>
+	<li><a href="https://cakephp.org">CakePHP</a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
+	<li><a href="https://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
+	<li><a href="https://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Quick API Reference'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
+	<li><a href="https://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://plugins.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Plugins'); ?> </a>
+	<li><a href="https://plugins.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Plugins'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'A comprehensive list of all CakePHP plugins created by the community'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://community.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Community Center'); ?> </a>
+	<li><a href="https://community.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Community Center'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Everything related to the CakePHP community in one place'); ?></li>
 		</ul>
@@ -252,22 +248,23 @@ You can also add some CSS styles for your pages at: %s.',
 			<li><?php echo __d('cake_dev', 'CakePHP Issues'); ?></li>
 		</ul>
 	</li>
-	<li><a href="https://github.com/cakephp/cakephp/wiki#roadmaps"><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?> </a>
+	<li>
+		<a href="https://github.com/cakephp/cakephp/wiki#roadmaps"><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://training.cakephp.org"><?php echo __d('cake_dev', 'Training'); ?> </a>
+	<li><a href="https://training.cakephp.org"><?php echo __d('cake_dev', 'Training'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Join a live session and get skilled with the framework'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://cakefest.org"><?php echo __d('cake_dev', 'CakeFest'); ?> </a>
+	<li><a href="https://cakefest.org"><?php echo __d('cake_dev', 'CakeFest'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Don\'t miss our annual CakePHP conference'); ?></li>
 		</ul>
 	</li>
-	<li><a href="http://cakefoundation.org"><?php echo __d('cake_dev', 'Cake Software Foundation'); ?> </a>
+	<li><a href="https://cakefoundation.org"><?php echo __d('cake_dev', 'Cake Software Foundation'); ?> </a>
 		<ul>
 			<li><?php echo __d('cake_dev', 'Promoting development related to CakePHP'); ?></li>
 		</ul>

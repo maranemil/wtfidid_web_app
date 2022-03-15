@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 App::uses('AppModel', 'Model');
 
@@ -7,17 +7,18 @@ App::uses('AppModel', 'Model');
  */
 class Project extends AppModel
 {
-    /**
-     * validate
-     *
-     * @var array
-     */
-    public $validate = array(
-        'name' => array(
-            'rule' => 'notBlank',
-        ),
-        /*'body' => array(
-    'rule' => 'notEmpty'
-    )*/
-    );
+	/**
+	 * validate
+	 *
+	 * @var array
+	 */
+	public $validate
+		= array(
+			'name' => array(
+				'rule' => 'notBlank',
+			),
+			/*'body' => array(
+		'rule' => 'notEmpty'
+		)*/
+		);
 }

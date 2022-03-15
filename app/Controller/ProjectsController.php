@@ -1,4 +1,7 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection SqlNoDataSourceInspection */
+/** @noinspection SqlDialectInspection */
+/** @noinspection PhpUnused */
 
 // Docs and resources
 /*
@@ -22,6 +25,8 @@ http://book.cakephp.org/2.0/en/models/retrieving-your-data.html#magic-find-types
 
 /**
  * Class ProjectsController
+ * @property CakeRequest|mixed|string|null $Project
+ * @property CakeRequest|mixed|string|null $Time
  */
 class ProjectsController extends AppController
 {
@@ -144,11 +149,11 @@ class ProjectsController extends AppController
         $project = $this->Project->findById($id);
         if (!isset($project)) {
             throw new NotFoundException(__('Invalid Project'));
-        } else {
-            $this->set('project', $project);
         }
 
-        if ($this->request->is(array('post', 'put'))) {
+		$this->set('project', $project);
+
+		if ($this->request->is(array('post', 'put'))) {
             $this->Project->id = $id;
             if ($this->Project->save($this->request->data)) {
                 $this->Session->setFlash(__('Your Project has been updated.'));
@@ -162,12 +167,13 @@ class ProjectsController extends AppController
         }
     }
 
-    /**
-     * delete
-     *
-     * @param  mixed $id
-     * @return void
-     */
+	/**
+	 * delete
+	 *
+	 * @param mixed $id
+	 * @return void
+	 * @throws Exception
+	 */
     public function delete($id = null)
     {
         //if (!$this->request->is('get')) {
@@ -175,7 +181,7 @@ class ProjectsController extends AppController
         //}
 
         if (empty($id)) {
-            throw new Exception("No id provided");
+            throw new RuntimeException("No id provided");
         }
 
         if ($this->Project->delete($id)) {
@@ -225,7 +231,7 @@ class ProjectsController extends AppController
         $this->set('report', $report);
     }
 
-    
+
     /**
      * showstatsall
      *
@@ -322,7 +328,7 @@ class ProjectsController extends AppController
         return $this->Project->field('id', array('id' => $post, 'user_id' => $user)) !== false;
     }
 
-    
+
     /**
      * viewByUser
      *

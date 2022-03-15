@@ -17,39 +17,39 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php echo $this->Html->charset(); ?>
-    <title>
-        <?php echo $cakeDescription ?>:
-        <?php echo $title_for_layout; ?>
-    </title>
-    <?php
+	<?php echo $this->Html->charset(); ?>
+	<title>
+		<?php echo $cakeDescription ?>:
+		<?php echo $title_for_layout; ?>
+	</title>
+	<?php
 
-    echo $this->Html->meta('icon');
+	echo $this->Html->meta('icon');
 
-    echo $this->Html->css('cake.generic');
-    echo $this->Html->css('timer_app');
+	echo $this->Html->css('cake.generic');
+	echo $this->Html->css('timer_app');
 
-    echo $this->fetch('meta');
-    echo $this->fetch('css');
-    echo $this->fetch('script');
+	echo $this->fetch('meta');
+	echo $this->fetch('css');
+	echo $this->fetch('script');
 
-    ?>
+	?>
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 </head>
 <body>
 <div id="container">
-    <div id="header">
-	<!--
+	<div id="header">
+		<!--
         <h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 	-->
-    </div>
-    <div id="content">
+	</div>
+	<div id="content">
 
-		<?php if ($this->Session->read('Auth.User')){ ?>
-		<div class="control-btn">
-			<a href="<?=$this->base?>/projects/index">Back To Index</a>
-		</div>
+		<?php if ($this->Session->read('Auth.User')) { ?>
+			<div class="control-btn">
+				<a href="<?= $this->base ?>/projects/index">Back To Index</a>
+			</div>
 		<?php } ?>

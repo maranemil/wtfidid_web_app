@@ -1,7 +1,7 @@
-<script src="<?php echo $this->webroot?>js/timer.jquery.js"></script>
+<script src="<?php echo $this->webroot ?>js/timer.jquery.js"></script>
 
 <div class="control-btn">
-	<a href="<?=$this->base?>/projects/showstats">Today Report</a>
+	<a href="<?= $this->base ?>/projects/showstats">Today Report</a>
 </div>
 <div class="counter-slide">
 	<div class="couter-timer">
@@ -11,20 +11,18 @@
 </div>
 <ul class="projects-list">
 	<?php
-foreach ($projects as $project) {
-    echo '
-                <li class="project">
+	foreach ($projects as $project) {
+		echo '<li class="project">
                     <a href="javascript:void(0)" class="project-bttn" id="prod-' . $project['Project']['id'] . '">
 						<img src="' . $this->webroot . 'img/play-icon.png" alt="">
 					</a>
                     <span> ' . $project['Project']['name'] . ' </span>
-                </li>
-                ';
-}
-?>
+                </li>';
+	}
+	?>
 </ul>
 <div class="control-btn">
-	<a href="<?=$this->base?>/projects/plist">Edit Projects</a>
+	<a href="<?= $this->base ?>/projects/plist">Edit Projects</a>
 </div>
 <div style="display: none">
 	<div id="unix-start"></div>
@@ -37,9 +35,9 @@ foreach ($projects as $project) {
 	//$(document).ready(function(){
 
 	jQuery(function ($) {
+		let counterSlide = $('.counter-slide');
+		counterSlide.slideUp();
 
-		$('.counter-slide').slideUp();
-		
 		$.toHHMMSS = function (sec_num) {
 
 			let hours = Math.floor(sec_num / 3600);
@@ -60,9 +58,9 @@ foreach ($projects as $project) {
 
 
 		$.getCurentUnixTime = function () {
-			const timestamp = parseInt(Math.floor(Date.now() / 1000));// current time in seconds
+			// current time in seconds
 			// Math.floor(Date.now() / 1000) // current time in seconds
-			return timestamp;
+			return parseInt(Math.floor(Date.now() / 1000));
 		}
 
 		$.convertUnix2Time = function (timestamp) {
@@ -82,7 +80,7 @@ foreach ($projects as $project) {
 		}
 
 		$('.project-bttn').click(function () {
-			$('.counter-slide').slideDown();
+			counterSlide.slideDown();
 			const unixCurrent = $.getCurentUnixTime();
 			const startTime = unixCurrent + '|' + $.convertUnix2Time(unixCurrent);
 			$('#unix-start').text(startTime);
@@ -91,8 +89,8 @@ foreach ($projects as $project) {
 			$('#ajax-loader').html('<br /><img src="<?=$this->webroot?>img/ajax-loader_3.gif" width="30%">')
 		});
 
-		$('.counter-slide').click(function () {
-			$('.counter-slide').slideUp();
+		counterSlide.click(function () {
+			counterSlide.slideUp();
 			const unixCurrent = $.getCurentUnixTime();
 			const startTime = unixCurrent + '|' + $.convertUnix2Time(unixCurrent);
 			$('#unix-end').text(startTime);
@@ -126,13 +124,13 @@ foreach ($projects as $project) {
 					unixDiff: $('#unix-diff').text()
 				}
 			})
-			.done(function (msg) {
-				//alert( "Data Saved: " + msg );
-				$('#unix-start').text('');
-				$('#unix-end').text('');
-				$('#unix-diff').text('');
-				$('#unix-proid').text('');
-			});
+				.done(function (msg) {
+					//alert( "Data Saved: " + msg );
+					$('#unix-start').text('');
+					$('#unix-end').text('');
+					$('#unix-diff').text('');
+					$('#unix-proid').text('');
+				});
 		}
 	});
 </script>

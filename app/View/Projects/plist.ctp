@@ -1,5 +1,5 @@
 <div class="control-btn">
-	<a href="<?=$this->base?>/projects/add">Add New Project</a>
+	<a href="<?= $this->base ?>/projects/add">Add New Project</a>
 </div>
 <?php
 /*echo $this->Html->link(
@@ -9,8 +9,8 @@ array('controller' => 'projects', 'action' => 'add')
 ?>
 <ul class="projects-list">
 	<?php
-foreach ($projects as $project) {
-    echo '
+	foreach ($projects as $project) {
+		echo '
                 <li class="project">
 					<a href="' . $this->base . '/projects/edit/' . $project['Project']['id'] . '" class="project-bttn">
 						<img src="' . $this->webroot . 'img/edit-icon.png" alt="">
@@ -21,9 +21,9 @@ foreach ($projects as $project) {
                     <span> ' . $project['Project']['name'] . ' </span>
                 </li>
                 ';
-}
-?>
+	}
+	?>
 </ul>
 <div class="control-btn">
-	<a href="<?=$this->base?>/projects/showstats">Show Report</a>
+	<a href="<?= $this->base ?>/projects/showstats">Show Report</a>
 </div>
